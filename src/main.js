@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import VueRouter from "vue-router";
 import App from './App.vue'
+import axios from 'axios'
 import './css/tailwind.css';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+Vue.prototype.$http = axios
 
 Vue.prototype.$library = library
 
@@ -23,10 +26,16 @@ const routes = [
     // component: Home,
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/Berths",
+    name: "Berths",
     component: () =>
-      import(/* webpackChunkName: "about" */ "./components/About.vue"),
+      import(/* webpackChunkName: "about" */ "./components/Berths.vue"),
+  },
+  {
+    path: "/Tides",
+    name: "Tides",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "./components/Tides.vue"),
   },
   {
     path: "/login",
